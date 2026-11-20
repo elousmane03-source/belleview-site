@@ -1,0 +1,8 @@
+RÉSIDENCE BELLEVIEW — PRÉPARATION ADMINISTRATION
+
+Le dossier contient le site, les données des chambres et l'interface Decap CMS.
+L'administration n'est pas encore activée : elle exige un dépôt GitHub relié à Netlify et un service OAuth GitHub compatible configuré côté serveur. Ne saisissez pas de clé secrète dans les fichiers ni dans une conversation.
+
+Déposez tous les fichiers et dossiers de ce dossier à la racine du dépôt GitHub. Reliez ensuite le dépôt à Netlify ; conservez le site Netlify existant, activez la détection des formulaires et configurez les notifications email pour reservation et reservation-residence. Une configuration OAuth est ensuite nécessaire pour accéder à /admin/ en sécurité ; ne la considérez pas prête avant test de connexion et publication.
+
+Les contenus des chambres sont dans contenu/chambres.json et les médias dans medias/. Les photos/vidéos ne sont pas fournies. Pour de grosses vidéos, préférer ultérieurement un hébergement adapté : les fichiers volumineux et les limites de GitHub rendent le dépôt peu adapté.

@@ -1,0 +1,46 @@
+{
+  "chambres": [
+    {
+      "nom": "Chambre 1",
+      "description": "Description à venir.",
+      "prix": null,
+      "photos": [],
+      "video": ""
+    },
+    {
+      "nom": "Chambre 2",
+      "description": "Description à venir.",
+      "prix": null,
+      "photos": [],
+      "video": ""
+    },
+    {
+      "nom": "Chambre 3",
+      "description": "Description à venir.",
+      "prix": null,
+      "photos": [],
+      "video": ""
+    },
+    {
+      "nom": "Chambre 4",
+      "description": "Description à venir.",
+      "prix": null,
+      "photos": [],
+      "video": ""
+    },
+    {
+      "nom": "Chambre 5",
+      "description": "Description à venir.",
+      "prix": null,
+      "photos": [],
+      "video": ""
+    },
+    {
+      "nom": "Chambre 6",
+      "description": "Description à venir.",
+      "prix": null,
+      "photos": [],
+      "video": ""
+    }
+  ]
+}

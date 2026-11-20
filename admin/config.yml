@@ -1,0 +1,30 @@
+backend:
+  name: github
+  repo: elousmane03-source/belleview-site
+  branch: main
+media_folder: "medias"
+public_folder: "/medias"
+locale: fr
+collections:
+  - name: residence
+    label: Résidence BelleView
+    files:
+      - name: chambres
+        label: Chambres et tarifs
+        file: contenu/chambres.json
+        format: json
+        fields:
+          - label: Chambres
+            name: chambres
+            widget: list
+            fields:
+              - {label: Nom de la chambre, name: nom, widget: string}
+              - {label: Description, name: description, widget: text, required: false}
+              - {label: Prix par nuit en FCFA, name: prix, widget: number, value_type: int, min: 0, required: false}
+              - label: Photos
+                name: photos
+                widget: list
+                required: false
+                fields:
+                  - {label: Image, name: image, widget: image}
+              - {label: Vidéo, name: video, widget: file, required: false, media_library: {config: {multiple: false}}}
