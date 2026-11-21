@@ -328,6 +328,20 @@ footer{background:var(--deep);color:rgba(255,255,255,.82)}
   .about-photo img{height:380px}
   .gallery-grid{grid-auto-rows:170px}
 }
+
+/* Animations discrètes des boutons et onglets */
+@media (prefers-reduced-motion: no-preference) {
+  .nav-links a,.mobile-menu a,.tab,.btn,.submit-btn,.navlinks a{transition:transform .22s ease, color .22s ease, background-color .22s ease, box-shadow .22s ease, border-color .22s ease}
+  .nav-links a,.navlinks a{display:inline-block}
+  .nav-links a:hover,.navlinks a:not(.btn):hover{transform:translateY(-3px);color:#facc15}
+  .tab:hover{transform:translateY(-3px);box-shadow:0 8px 20px rgba(234,88,12,.15)}
+  .tab:active,.btn:active,.submit-btn:active{transform:scale(.96)}
+  .btn:hover,.submit-btn:hover{transform:translateY(-3px);box-shadow:0 16px 30px -8px rgba(234,88,12,.4)}
+  .mobile-menu a:active{transform:translateX(5px);color:#facc15}
+}
+@media (prefers-reduced-motion: reduce) {
+ .nav-links a,.mobile-menu a,.tab,.btn,.submit-btn,.navlinks a{transition:none!important;animation:none!important;transform:none!important}
+}
 </style>
 </head>
 <body>
