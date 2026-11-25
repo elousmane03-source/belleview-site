@@ -1,47 +1,82 @@
 {
-  "reels": [],
+  "reels": [
+    {
+      "video": "/medias/video-belleview.mp4",
+      "titre": "BelleView Residence en video "
+    }
+  ],
   "chambres": [
     {
-      "nom": "Chambre 1",
-      "description": "Description à venir.",
-      "prix": null,
+      "nom": "Chambre  galet 1",
+      "description": "CHAMBRE GALET 1 – BELLEVIEW**\n\n✨ Profitez d'une chambre élégante et chaleureuse, avec un grand lit confortable, une décoration raffinée et un espace détente idéal pour un séjour reposant. 🤎\n📍 Belleview – Réservez dès maintenant !",
+      "prix": 65000,
+      "photos": [
+        {
+          "image": "/medias/chambre-1-belleview.jpeg"
+        }
+      ],
+      "video": ""
+    },
+    {
+      "nom": "Chambre corail 2",
+      "description": "CHAMBRE CORAIL 2 – BELLEVIEW**\n\n✨ Une chambre élégante et chaleureuse, avec un grand lit confortable, une décoration raffinée et une belle vue sur la piscine. Idéale pour un séjour de détente et de bien-être. 🤎\n📍 Belleview – Réservez dès maintenant !",
+      "prix": 65000,
+      "photos": [
+        {
+          "image": "/medias/chambre2.jpeg"
+        }
+      ],
+      "video": ""
+    },
+    {
+      "nom": "Chambre Marine 3",
+      "description": "CHAMBRE MARINE – BELLEVIEW**\n\n✨ Une chambre moderne et élégante, avec un grand lit confortable, un espace détente avec canapé et une décoration chaleureuse pour un séjour tout en confort. 🤎\n📍 Belleview – Réservez dès maintenant !",
+      "prix": 65000,
+      "photos": [
+        {
+          "image": "/medias/chambre3.jpeg"
+        }
+      ],
+      "video": ""
+    },
+    {
+      "nom": "Chambre corail 4",
+      "description": "De🌊 CHAMBRE CORAIL – BELLEVIEW\n\nOffrez-vous un séjour de détente dans une chambre élégante, confortable et chaleureuse, avec une magnifique vue sur la mer. ✨\n\n🏡 Cadre paisible et raffiné\n🛏️ Confort et décoration soignée\n🌴 Idéal pour un séjour relaxant\n\n📍 Belleview – Réservez dès maintenant !",
+      "prix": 75000,
+      "photos": [
+        {
+          "image": "/medias/chambre4.jpeg"
+        }
+      ],
+      "video": ""
+    },
+    {
+      "nom": "Chambre Rivage 5",
+      "description": "Chambre Rivage 5 – Belleview 🌊\nProfitez d’un cadre élégant et chaleureux pour un séjour placé sous le signe du confort et de la détente. ✨\n🛏️ Chambre spacieuse et confortable\n🚿 Salle de bain privative\n🌿 Ambiance calme et reposante\n📍 Belleview – Réservez dès maintenant !",
+      "prix": 55000,
       "photos": [],
       "video": ""
     },
     {
-      "nom": "Chambre 2",
-      "description": "Description à venir.",
-      "prix": null,
-      "photos": [],
+      "nom": "Chambre Horizon 6",
+      "description": " ✨SUITE  HORIZON – BELLEVIEW\n\nUn séjour de luxe alliant élégance, confort et raffinement. 🌿\n\n🏡 Cadre prestigieux\n🛏️ Chambre spacieuse\n❄️ Climatisation\n\nHorizon, le luxe à l’état pur ! ✨\n\n📍 Belleview – Réservez dès maintenant !",
+      "prix": 110000,
+      "photos": [
+        {
+          "image": "/medias/chalbre-6.jpeg"
+        }
+      ],
       "video": ""
     },
     {
-      "nom": "Chambre 3",
-      "description": "Description à venir.",
-      "prix": null,
-      "photos": [],
-      "video": ""
-    },
-    {
-      "nom": "Chambre 4",
-      "description": "Description à venir.",
-      "prix": null,
-      "photos": [],
-      "video": ""
-    },
-    {
-      "nom": "Chambre 5",
-      "description": "Description à venir.",
-      "prix": null,
-      "photos": [],
-      "video": ""
-    },
-    {
-      "nom": "Chambre 6",
-      "description": "Description à venir.",
-      "prix": null,
-      "photos": [],
-      "video": ""
+      "nom": "Chambre Alizé 7",
+      "description": "✨ CHAMBRE ALIZÉ 7 – BELLEVIEW\n\nUn cocon élégant et raffiné, idéal pour profiter d’un séjour placé sous le signe du confort et de la détente. 🌿\n\n🛏️ Confort & élégance\n🌴 Cadre chaleureux\n✨ Ambiance cosy et apaisante\n\n📍Belleview, votre parenthèse de douceur !\n",
+      "prix": 55000,
+      "photos": [
+        {
+          "image": "/medias/chambre-7.jpeg"
+        }
+      ]
     }
   ]
 }
