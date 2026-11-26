@@ -54,7 +54,11 @@
       "nom": "Chambre Rivage 5",
       "description": "Chambre Rivage 5 – Belleview 🌊\nProfitez d’un cadre élégant et chaleureux pour un séjour placé sous le signe du confort et de la détente. ✨\n🛏️ Chambre spacieuse et confortable\n🚿 Salle de bain privative\n🌿 Ambiance calme et reposante\n📍 Belleview – Réservez dès maintenant !",
       "prix": 55000,
-      "photos": [],
+      "photos": [
+        {
+          "image": "/medias/chambre-5.jpeg"
+        }
+      ],
       "video": ""
     },
     {
