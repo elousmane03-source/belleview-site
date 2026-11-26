@@ -27,6 +27,16 @@
 .res-form input[type="date"]{-webkit-appearance:none;appearance:none;display:block;width:100%;min-width:0;max-width:100%;text-align:left}
 .res-form input[type="date"]::-webkit-date-and-time-value{text-align:left;min-width:0}
 @media(max-width:600px){.res-form{grid-template-columns:minmax(0,1fr)}}
+
+/* Animations des chambres et demandes de réservation. */
+@media (prefers-reduced-motion:no-preference){
+ .listing{animation:roomAppear .65s ease both;transition:transform .25s ease,box-shadow .25s ease}
+ .listing:nth-child(2){animation-delay:.08s}.listing:nth-child(3){animation-delay:.16s}.listing:nth-child(4){animation-delay:.24s}.listing:nth-child(5){animation-delay:.32s}.listing:nth-child(6){animation-delay:.4s}.listing:nth-child(7){animation-delay:.48s}
+ .listing:hover{transform:translateY(-7px);box-shadow:0 22px 45px -18px rgba(234,88,12,.3)}
+ .listing-media img{transition:transform .5s ease}.listing:hover .listing-media img{transform:scale(1.04)}.listing-media{overflow:hidden}
+ .res-form{animation:roomAppear .7s ease both}.res-form .btn,.listing .btn{transition:transform .22s ease,box-shadow .22s ease}.res-form .btn:hover,.listing .btn:hover{transform:translateY(-3px);box-shadow:0 18px 38px -8px rgba(234,88,12,.55)}.res-form .btn:active,.listing .btn:active{transform:scale(.97)}
+ @keyframes roomAppear{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+}
 </style></head><body><header class="header"><div class="wrap nav"><a class="brand" href="index.html">Belle<span>View</span> <small style="font:700 11px Arial;letter-spacing:.12em">RÉSIDENCE</small></a><nav class="navlinks"><a href="#chambres">Chambres</a><a href="#restaurant">Restaurant</a><a href="#contact">Contact</a><a class="btn" href="#reserver">Réserver</a></nav></div></header>
 <main><section class="hero"><div class="wrap"><span class="tag">✦ Résidence BelleView · Sendou</span><h1>Votre séjour<br>à <em>Sendou.</em></h1><p>Bienvenue à la Résidence BelleView. Pour découvrir nos chambres et préparer votre séjour, contactez notre équipe.</p><div class="actions"><a class="btn" href="#reserver">Faire une demande ↗</a><a class="btn outline" href="#chambres">Découvrir la résidence ↓</a></div></div></section><div class="strip">RÉSIDENCE BELLEVIEW &nbsp; ✦ &nbsp; SENDOU · RUFISQUE &nbsp; ✦ &nbsp; RESTAURANT BELLEVIEW</div>
 <section class="section alt" id="reels"><div class="wrap"><span class="eyebrow">🎬 Découvrez BelleView en vidéo</span><h2>La Résidence en Reels</h2><p>Découvrez bientôt la Résidence en vidéo verticale.</p><div class="reel" id="reelContainer"><div class="reel-screen"><div><div class="play">▶</div><small>Vidéo à venir</small></div></div><div><span class="media-badge">🎬 FORMAT REELS</span><h3>La Résidence en vidéo</h3><p>Les vidéos réelles des chambres seront ajoutées ici dès qu’elles seront disponibles.</p><span style="color:#facc15;font-weight:800">Photos et tarifs à venir</span></div></div></div></section>
@@ -42,7 +52,7 @@ fetch('contenu/chambres.json').then(r=>{if(!r.ok)throw Error();return r.json()})
  if(reels.length){
   let current=0;
   function showReel(){
-   reelContainer.replaceChildren();const video=document.createElement('video');video.className='reel-screen';video.controls=true;video.playsInline=true;video.preload='metadata';video.src=reels[current].video;video.style.cssText='width:100%;object-fit:contain';reelContainer.appendChild(video);
+   reelContainer.replaceChildren();const video=document.createElement('video');video.className='reel-screen';video.controls=true;video.playsInline=true;video.muted=true;video.loop=true;video.autoplay=!window.matchMedia('(prefers-reduced-motion: reduce)').matches;video.preload='metadata';video.src=reels[current].video;video.style.cssText='width:100%;object-fit:contain';reelContainer.appendChild(video);
    const content=document.createElement('div');const badge=document.createElement('span');badge.className='media-badge';badge.textContent='🎬 FORMAT REELS · '+(current+1)+' / '+reels.length;const title=document.createElement('h3');title.textContent=reels[current].titre||'Résidence BelleView';const text=document.createElement('p');text.textContent='Découvrez la Résidence BelleView à Sendou en vidéo.';content.append(badge,title,text);
    if(reels.length>1){for(const [label,delta] of [['← Précédent',-1],['Suivant →',1]]){const button=document.createElement('button');button.type='button';button.textContent=label;button.className='btn';button.style.cssText='border:0;cursor:pointer;margin:4px';button.onclick=()=>{current=(current+delta+reels.length)%reels.length;showReel()};content.appendChild(button)}}reelContainer.appendChild(content);
   }showReel();
