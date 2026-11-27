@@ -733,7 +733,7 @@ footer{background:var(--deep);color:rgba(255,255,255,.82)}
         <div class="confirm-details" id="confirmDetails"></div>
         <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
           <a class="btn btn-terra" href="tel:+221784319999">Confirmer par téléphone</a>
-          <a class="btn btn-outline-dark" id="confirmMailBtn" href="mailto:ndiayejamorant12@gmail.com">Ouvrir dans mon email</a>
+          <a class="btn btn-outline-dark" id="confirmMailBtn" href="mailto:Belleviewsendou@gmail.com">Ouvrir dans mon email</a>
           <button class="btn btn-outline" style="color:var(--deep);border-color:var(--deep)" id="newReservationBtn">Nouvelle réservation</button>
         </div>
       </div>
@@ -1029,7 +1029,7 @@ form.addEventListener('submit', e => {
     '\nRéférence : ' + ref
   );
   document.getElementById('confirmMailBtn').href =
-    'mailto:ndiayejamorant12@gmail.com?subject=' + encodeURIComponent('Réservation BelleView ' + ref + ' — ' + details.nom) + '&body=' + mailtoBody;
+    'mailto:Belleviewsendou@gmail.com?subject=' + encodeURIComponent('Réservation BelleView ' + ref + ' — ' + details.nom) + '&body=' + mailtoBody;
 
   document.getElementById('fallbackMail').href = document.getElementById('confirmMailBtn').href;
   const errorBox = document.getElementById('sendError');
@@ -1038,14 +1038,17 @@ form.addEventListener('submit', e => {
   submitBtn.disabled = true;
   submitBtn.textContent = 'Envoi en cours…';
 
-  const payload = new URLSearchParams(new FormData(form));
+  const payload = new FormData(form);
+  payload.delete('form-name');
+  payload.set('access_key', '4828893d-2330-48db-a91d-d4a1d3ec701a');
+  payload.set('subject', '🍽️ BelleView — Demande de réservation restaurant');
   const controller = new AbortController();
   const timer = setTimeout(() => controller.abort(), 15000);
-  fetch('/', {
-    method: 'POST', headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+  fetch('https://api.web3forms.com/submit', {
+    method: 'POST', headers: { 'Accept': 'application/json' },
     body: payload, signal: controller.signal
   })
-    .then(res => { if (!res.ok) throw new Error('Envoi impossible'); })
+    .then(async res => { const data = await res.json(); if (!res.ok || data.success !== true) throw new Error('Envoi impossible'); })
     .then(() => {
       form.style.display = 'none';
       confirmBox.classList.add('show');
