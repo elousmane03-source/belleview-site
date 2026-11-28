@@ -342,6 +342,27 @@ footer{background:var(--deep);color:rgba(255,255,255,.82)}
 @media (prefers-reduced-motion: reduce) {
  .nav-links a,.mobile-menu a,.tab,.btn,.submit-btn,.navlinks a{transition:none!important;animation:none!important;transform:none!important}
 }
+
+/* Choix principal toujours visible, y compris sur téléphone. */
+.main-switch{display:flex;align-items:center;gap:4px;padding:4px;background:#302a23;border-radius:12px;flex-shrink:0}
+.main-switch a{color:#fff;text-decoration:none;border-radius:9px;padding:9px 12px;font-size:13px;font-weight:800;white-space:nowrap;transition:background .2s,transform .2s}
+.main-switch a[aria-current="page"]{background:#f97316;color:#fff}.main-switch a:hover{background:#c2410c}.main-switch a:focus-visible{outline:3px solid #facc15;outline-offset:2px}
+@media(max-width:1180px){.nav-links{display:none}.hamburger{display:block}.nav-cta .btn-gold{display:none}}
+@media(max-width:480px){.nav-inner{width:calc(100% - 20px);gap:5px}.brand{gap:5px}.brand svg{width:30px;height:30px}.brand-name{font-size:1.05rem}.brand-sub{display:none}.main-switch{gap:2px;padding:3px}.main-switch a{font-size:11px;padding:9px 7px}.hamburger{padding:5px}}
+
+/* Navigation Restaurant / Résidence : mouvement fluide. */
+.main-switch{box-shadow:0 8px 25px rgba(0,0,0,.22)}
+.main-switch a{position:relative;overflow:hidden;display:inline-flex;align-items:center;justify-content:center;transition:background .3s ease,transform .25s cubic-bezier(.2,.8,.2,1),box-shadow .3s ease,color .3s ease}
+.main-switch a[aria-current="page"]{background:linear-gradient(120deg,#ea580c,#f97316,#f59e0b);box-shadow:0 5px 18px rgba(249,115,22,.35)}
+@media(prefers-reduced-motion:no-preference){.main-switch a:hover,.main-switch a:focus-visible{transform:translateY(-2px) scale(1.035);box-shadow:0 7px 20px rgba(249,115,22,.38)}.main-switch a:active{transform:scale(.95)}.main-switch a[aria-current="page"]{animation:switchArrival .55s cubic-bezier(.2,.8,.2,1) both}@keyframes switchArrival{from{opacity:.55;transform:scale(.93)}to{opacity:1;transform:scale(1)}}}
+@media(prefers-reduced-motion:reduce){.main-switch a{transition:none!important;animation:none!important;transform:none!important}}
+
+/* Curseur orange glissant entre Restaurant et Résidence. */
+.main-switch{position:relative;isolation:isolate}
+.main-switch a{position:relative;z-index:1;background:transparent!important;box-shadow:none!important;animation:none!important}
+.main-switch a:hover{background:rgba(255,255,255,.10)!important}
+.main-switch .switch-highlight{position:absolute;z-index:0;top:4px;bottom:4px;left:0;border-radius:9px;background:linear-gradient(120deg,#ea580c,#f97316,#f59e0b);box-shadow:0 5px 18px rgba(249,115,22,.35);pointer-events:none;transition:transform .5s cubic-bezier(.2,.8,.2,1),width .5s cubic-bezier(.2,.8,.2,1)}
+@media(prefers-reduced-motion:reduce){.main-switch .switch-highlight{transition:none}}
 </style>
 </head>
 <body>
@@ -361,11 +382,11 @@ footer{background:var(--deep);color:rgba(255,255,255,.82)}
         <span class="brand-sub">Brunch · Piscine · Plage</span>
       </span>
     </a>
+    <nav class="main-switch" aria-label="Choisir une partie du site"><a href="index.html" aria-current="page">🍽 Restaurant</a><a href="residence.html">🏠 Résidence</a></nav>
     <nav aria-label="Navigation principale">
       <ul class="nav-links">
         <li><a href="#apropos">Notre histoire</a></li>
         <li><a href="#piscine">La piscine</a></li>
-        <li><a href="residence.html">Résidence</a></li>
         <li><a href="#carte">La carte</a></li>
         <li><a href="#galerie">Galerie</a></li>
         <li><a href="#acces">Accès</a></li>
@@ -1095,6 +1116,9 @@ nlForm.addEventListener('submit', e => {
   nlForm.reset();
   showToast('Bienvenue dans le cercle BelleView ! À très vite.');
 });
+</script>
+<script>
+(function(){const nav=document.querySelector('.main-switch');if(!nav)return;const links=Array.from(nav.querySelectorAll('a'));const active=nav.querySelector('[aria-current="page"]');if(links.length!==2||!active)return;const track=document.createElement('span');track.className='switch-highlight';track.setAttribute('aria-hidden','true');nav.prepend(track);const reduced=window.matchMedia('(prefers-reduced-motion: reduce)').matches;function position(link){track.style.width=link.offsetWidth+'px';track.style.transform='translateX('+link.offsetLeft+'px)'}let from=null;try{from=sessionStorage.getItem('bv-switch-from');sessionStorage.removeItem('bv-switch-from')}catch(e){}const initial=links.find(a=>a.textContent.includes(from))||active;track.style.transition='none';position(initial);requestAnimationFrame(()=>requestAnimationFrame(()=>{track.style.transition='';position(active)}));links.forEach(link=>link.addEventListener('click',function(e){if(link===active)return;try{sessionStorage.setItem('bv-switch-from',active.textContent.includes('Restaurant')?'Restaurant':'Résidence')}catch(err){}if(e.metaKey||e.ctrlKey||e.shiftKey||e.altKey||e.button!==0||reduced)return;e.preventDefault();position(link);setTimeout(()=>{location.href=link.href},350)}));window.addEventListener('resize',()=>position(active));})();
 </script>
 </body>
 </html>
